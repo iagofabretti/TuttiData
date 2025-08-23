@@ -90,9 +90,11 @@ img {
 
 /* ===== REUSABLE CSS CLASSES ===== */
 .container {
-  max-width: 1200px;
-  margin-left: var(--mb-1-5);
-  margin-right: var(--mb-1-5);
+    max-width: 1200px;
+    margin: 0 auto;        /* Centraliza todo o conteúdo */
+    padding: 0 1.5rem;     /* Mantém espaçamento lateral no mobile */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .grid {
@@ -403,16 +405,16 @@ img {
 
 .services__container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
-    justify-content: center;       /* Centraliza os cards horizontalmente */
+    justify-content: center;       /* Centraliza todo o conteúdo no container */
     justify-items: center;         /* Centraliza cada card individualmente */
-    align-items: stretch;          /* Deixa todos com a mesma altura */
+    align-items: stretch;          /* Faz os cards terem alturas iguais */
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;               /* Garante que o container fique no centro */
+    max-width: 1200px;             /* Mantém proporção no desktop */
+    margin: 0 auto;                /* Centraliza o container na página */
+    padding: 0 1rem;               /* Adiciona espaçamento lateral */
 }
-
 
 .service__card {
   background: var(--card-color);
