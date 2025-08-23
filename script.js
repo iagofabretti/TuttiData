@@ -583,3 +583,47 @@ if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').m
 
 console.log('🚀 Tutti Data website loaded successfully!');
 
+/*==================== CONTADOR ANIMADO CORRIGIDO ====================*/
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".stat__number");
+    const speed = 200;
+    let started = false;
+
+    // Função para animar os números
+    function animateCounters() {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute("data-count");
+            let current = 0;
+            const increment = Math.ceil(target / speed);
+
+            const update = () => {
+                if (current < target) {
+                    current += increment;
+                    counter.innerText = current > target ? target : current;
+                    requestAnimationFrame(update);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            update();
+        });
+    }
+
+    // Observer para disparar só quando a seção "Sobre" entra na tela
+    const aboutSection = document.querySelector("#sobre");
+
+    if (aboutSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !started) {
+                    started = true;
+                    animateCounters();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(aboutSection);
+    }
+});
+
+
