@@ -401,12 +401,16 @@ img {
   background: var(--container-color);
 }
 
-.services__container{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem; /* 24px -> 4*280 + 3*24 = 1192px < 1200 */
-  justify-content:center;
-  align-items:stretch;
+.services__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;       /* Centraliza os cards horizontalmente */
+    justify-items: center;         /* Centraliza cada card individualmente */
+    align-items: stretch;          /* Deixa todos com a mesma altura */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;               /* Garante que o container fique no centro */
 }
 
 
