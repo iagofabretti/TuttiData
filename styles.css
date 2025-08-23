@@ -1073,3 +1073,64 @@ img {
   }
 }
 
+/* ==== RESPONSIVIDADE ADICIONAL ==== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 6rem 0 3rem;
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cube {
+    width: 120px;
+    height: 120px;
+  }
+
+  .cube__face {
+    width: 120px;
+    height: 120px;
+    font-size: 1.5rem;
+  }
+
+  .services__container {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+
+  .service__card {
+    padding: 1.25rem;
+  }
+
+  .about__stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact__container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer__content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+}
+
+/* ==== Ajuste para 4 colunas no desktop largo ==== */
+@media (min-width: 1200px) {
+  .services__container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
