@@ -144,31 +144,41 @@ function animateCounters() {
 
 /*==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================*/
 const observerOptions = {
-    threshold: 0.1,
+    threshold: 0.3, // Só dispara quando 30% da seção estiver visível
     rootMargin: '0px 0px -50px 0px'
 };
+
+let countersStarted = false;
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
-            
-            // Animate counters when about section is visible
-            if (entry.target.classList.contains('about')) {
+
+            // Dispara a animação de contagem apenas uma vez
+            if (entry.target.classList.contains('about__container') && !countersStarted) {
+                countersStarted = true;
                 animateCounters();
             }
         }
     });
 }, observerOptions);
 
-// Observe all sections for scroll animations
+// Aplica animação suave em todas as seções
 document.querySelectorAll('section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(50px)';
     section.style.transition = 'all 0.8s ease-out';
     observer.observe(section);
 });
+
+// Também observa o container correto da seção "Sobre Nós"
+const aboutContainer = document.querySelector('.about__container');
+if (aboutContainer) {
+    observer.observe(aboutContainer);
+}
+
 
 // Observe service cards
 document.querySelectorAll('.service__card').forEach((card, index) => {
