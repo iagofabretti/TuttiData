@@ -1141,6 +1141,44 @@ img {
   }
 }
 
+/*
+ * -----------------------------------------------------------------
+ * Additional Mobile Responsiveness
+ *
+ * The WhatsApp AI section and associated elements were originally laid
+ * out using a two–column grid for content and a two– or three–column grid
+ * for feature cards and statistics. On narrow screens this layout
+ * created horizontal scrollbars and overlapping content because the
+ * columns did not stack. To improve the experience on mobile devices,
+ * the following media queries collapse those grids into single columns
+ * and adjust spacing. Additionally the chat mockup’s maximum width is
+ * relaxed so it can fill the available space on smaller screens.
+ */
+@media (max-width: 768px) {
+  /* Stack the main container to a single column */
+  .whatsapp-ai__container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Stack feature cards vertically */
+  .whatsapp-ai__features {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Stack statistics vertically */
+  .whatsapp-ai__stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Allow chat mockup to expand fully on mobile */
+  .chat-mockup {
+    max-width: 100%;
+  }
+}
+
 /* ===== WHATSAPP AI SECTION ===== */
 .whatsapp-ai {
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(139, 0, 255, 0.05) 100%);
